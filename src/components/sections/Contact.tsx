@@ -29,11 +29,16 @@ export default function Contact() {
       id="contact"
       aria-label="Kontak dan footer"
       style={{
+        height: '100%',
+        minHeight: '100svh',
         backgroundColor: 'var(--black-deep)',
-        paddingTop: '6rem',
-        paddingBottom: '3rem',
         position: 'relative',
         overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingTop: '5rem',
+        paddingBottom: '3rem',
         borderTop: '1px solid rgba(220,20,60,0.15)',
       }}
     >
@@ -59,15 +64,11 @@ export default function Contact() {
         005
       </span>
 
-      {/* Halftone dots background */}
+      {/* Halftone dots */}
       <div
         className="halftone"
         aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.2,
-        }}
+        style={{ position: 'absolute', inset: 0, opacity: 0.2 }}
       />
 
       <div
@@ -77,6 +78,7 @@ export default function Contact() {
           padding: '0 2rem',
           position: 'relative',
           zIndex: 1,
+          width: '100%',
         }}
       >
         {/* Layout — asimetris */}
@@ -92,11 +94,9 @@ export default function Contact() {
           {/* Left col */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: EASE_SHARP }}
           >
-            {/* Label */}
             <span
               style={{
                 fontFamily: 'var(--font-body)',
@@ -111,7 +111,6 @@ export default function Contact() {
               — Kontak
             </span>
 
-            {/* Heading */}
             <h2
               style={{
                 fontFamily: 'var(--font-display)',
@@ -153,9 +152,8 @@ export default function Contact() {
           {/* Right col — links */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.1, ease: [0.25, 0, 0, 1] }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.1, ease: EASE_SHARP }}
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -178,7 +176,8 @@ export default function Contact() {
                   background: 'var(--black-card)',
                   border: '1px solid rgba(255,255,255,0.06)',
                   textDecoration: 'none',
-                  clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%)',
+                  clipPath:
+                    'polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%)',
                   transition: 'border-color 0.2s, background 0.2s',
                 }}
                 onMouseEnter={(e) => {
@@ -186,7 +185,8 @@ export default function Contact() {
                   e.currentTarget.style.background = 'rgba(220,20,60,0.05)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
+                  e.currentTarget.style.borderColor =
+                    'rgba(255,255,255,0.06)';
                   e.currentTarget.style.background = 'var(--black-card)';
                 }}
               >
@@ -261,7 +261,6 @@ export default function Contact() {
           >
             RAIHAN MUFTHAHUL
           </span>
-
           <span
             style={{
               fontFamily: 'var(--font-body)',
@@ -270,7 +269,8 @@ export default function Contact() {
               letterSpacing: '0.08em',
             }}
           >
-            © {new Date().getFullYear()} · Indonesia · Dibuat sendiri, bukan template.
+            © {new Date().getFullYear()} · Indonesia · Dibuat sendiri, bukan
+            template.
           </span>
         </div>
       </div>

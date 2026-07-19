@@ -37,11 +37,16 @@ export default function About() {
       id="about"
       aria-label="Tentang Raihan"
       style={{
+        height: '100%',
+        minHeight: '100svh',
         backgroundColor: 'var(--black-surface)',
         position: 'relative',
-        paddingTop: '6rem',
-        paddingBottom: '6rem',
-        overflow: 'hidden',
+        overflow: 'hidden auto',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingTop: '5rem',
+        paddingBottom: '3rem',
       }}
     >
       {/* Background number */}
@@ -58,14 +63,14 @@ export default function About() {
           maxWidth: '1200px',
           margin: '0 auto',
           padding: '0 2rem',
+          width: '100%',
         }}
       >
         {/* Section label */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
+          animate="show"
           style={{ marginBottom: '0.5rem' }}
         >
           <span
@@ -85,13 +90,13 @@ export default function About() {
         <motion.h2
           variants={fadeUp}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
+          animate="show"
+          transition={{ delay: 0.05 }}
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(2.5rem, 7vw, 5rem)',
             color: 'var(--white-off)',
-            marginBottom: '3rem',
+            marginBottom: '2.5rem',
             position: 'relative',
             display: 'inline-block',
           }}
@@ -109,7 +114,7 @@ export default function About() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '3rem',
+            gap: '2rem',
             alignItems: 'start',
           }}
         >
@@ -117,16 +122,17 @@ export default function About() {
           <motion.div
             variants={fadeUp}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-60px' }}
+            animate="show"
+            transition={{ delay: 0.1 }}
           >
             <div
               style={{
                 background: 'var(--black-card)',
                 border: '1px solid rgba(220,20,60,0.2)',
-                padding: '2rem',
+                padding: '1.75rem',
                 position: 'relative',
-                clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%)',
+                clipPath:
+                  'polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%)',
               }}
             >
               {/* Card accent top */}
@@ -143,7 +149,7 @@ export default function About() {
               />
 
               {/* Confidant header */}
-              <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ marginBottom: '1.2rem' }}>
                 <div
                   style={{
                     fontFamily: 'var(--font-body)',
@@ -151,7 +157,7 @@ export default function About() {
                     letterSpacing: '0.2em',
                     textTransform: 'uppercase',
                     color: 'var(--crimson)',
-                    marginBottom: '0.4rem',
+                    marginBottom: '0.3rem',
                   }}
                 >
                   Confidant Profile
@@ -159,7 +165,7 @@ export default function About() {
                 <div
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '2.2rem',
+                    fontSize: '2rem',
                     color: 'var(--white-off)',
                     lineHeight: 1,
                   }}
@@ -178,37 +184,35 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Divider */}
               <div
                 style={{
                   height: '1px',
                   background: 'rgba(255,255,255,0.08)',
-                  marginBottom: '1.5rem',
+                  marginBottom: '1.2rem',
                 }}
               />
 
-              {/* Narasi */}
               <p
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: '0.95rem',
+                  fontSize: '0.92rem',
                   color: 'var(--white-dim)',
-                  lineHeight: 1.75,
-                  marginBottom: '1.5rem',
+                  lineHeight: 1.7,
+                  marginBottom: '1rem',
                 }}
               >
                 Saya Raihan — developer yang lebih suka membuktikan lewat kode
                 daripada deskripsi diri. Sejak 2022 aktif membangun website untuk
-                usaha kecil, aplikasi web fungsional, dan sesekali bongkar hal baru
-                yang belum saya mengerti.
+                usaha kecil, aplikasi web fungsional, dan sesekali bongkar hal
+                baru yang belum saya mengerti.
               </p>
 
               <p
                 style={{
                   fontFamily: 'var(--font-body)',
-                  fontSize: '0.95rem',
+                  fontSize: '0.92rem',
                   color: 'var(--white-dim)',
-                  lineHeight: 1.75,
+                  lineHeight: 1.7,
                 }}
               >
                 Tidak ada kata klise di sini. Yang ada: 27 repository, beberapa
@@ -220,8 +224,8 @@ export default function About() {
                 style={{
                   display: 'flex',
                   gap: '1.5rem',
-                  marginTop: '2rem',
-                  paddingTop: '1.5rem',
+                  marginTop: '1.5rem',
+                  paddingTop: '1.2rem',
                   borderTop: '1px solid rgba(255,255,255,0.06)',
                   flexWrap: 'wrap',
                 }}
@@ -235,7 +239,7 @@ export default function About() {
                     <div
                       style={{
                         fontFamily: 'var(--font-display)',
-                        fontSize: '1.6rem',
+                        fontSize: '1.5rem',
                         color: 'var(--crimson)',
                         lineHeight: 1,
                       }}
@@ -264,27 +268,26 @@ export default function About() {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '1rem',
+              gap: '0.85rem',
             }}
           >
             {highlights.map((h, i) => (
               <motion.div
                 key={h.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ delay: i * 0.1 }}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 + i * 0.1, duration: 0.45, ease: EASE_SHARP }}
               >
                 <div
                   style={{
                     background: 'var(--black-card)',
                     border: '1px solid rgba(255,255,255,0.06)',
-                    padding: '1.25rem 1.5rem',
+                    padding: '1.1rem 1.4rem',
                     display: 'flex',
                     gap: '1rem',
                     alignItems: 'flex-start',
-                    clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)',
+                    clipPath:
+                      'polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)',
                     transition: 'border-color 0.2s',
                   }}
                   onMouseEnter={(e) =>
@@ -297,7 +300,7 @@ export default function About() {
                   <span
                     style={{
                       fontFamily: 'var(--font-display)',
-                      fontSize: '1.4rem',
+                      fontSize: '1.3rem',
                       color: 'var(--crimson)',
                       lineHeight: 1,
                       marginTop: '0.1rem',
@@ -310,10 +313,10 @@ export default function About() {
                     <div
                       style={{
                         fontFamily: 'var(--font-display)',
-                        fontSize: '1.1rem',
+                        fontSize: '1.05rem',
                         color: 'var(--white-off)',
                         letterSpacing: '0.05em',
-                        marginBottom: '0.3rem',
+                        marginBottom: '0.25rem',
                       }}
                     >
                       {h.title}
@@ -321,7 +324,7 @@ export default function About() {
                     <p
                       style={{
                         fontFamily: 'var(--font-body)',
-                        fontSize: '0.87rem',
+                        fontSize: '0.85rem',
                         color: 'var(--white-dim)',
                         lineHeight: 1.6,
                       }}

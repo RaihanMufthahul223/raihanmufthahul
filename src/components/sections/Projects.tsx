@@ -118,15 +118,14 @@ function MissionCard({ project, index }: { project: Project; index: number }) {
       exit={{ opacity: 0, y: -16, scale: 0.96 }}
       transition={{ duration: 0.35, delay: index * 0.06, ease: EASE_SHARP }}
       className="mission-card"
-      style={{ padding: '1.5rem' }}
+      style={{ padding: '1.3rem' }}
     >
-      {/* Highlight marker */}
       {project.highlight && (
         <div
           style={{
             position: 'absolute',
-            top: '1rem',
-            right: '1rem',
+            top: '0.8rem',
+            right: '0.8rem',
             fontFamily: 'var(--font-body)',
             fontSize: '0.6rem',
             color: 'var(--crimson)',
@@ -138,14 +137,13 @@ function MissionCard({ project, index }: { project: Project; index: number }) {
         </div>
       )}
 
-      {/* Project name */}
       <h3
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '1.5rem',
+          fontSize: '1.35rem',
           color: 'var(--white-off)',
           letterSpacing: '0.04em',
-          marginBottom: '0.5rem',
+          marginBottom: '0.4rem',
           lineHeight: 1.1,
           paddingRight: project.highlight ? '4rem' : 0,
         }}
@@ -153,26 +151,24 @@ function MissionCard({ project, index }: { project: Project; index: number }) {
         {project.name}
       </h3>
 
-      {/* Description */}
       <p
         style={{
           fontFamily: 'var(--font-body)',
-          fontSize: '0.87rem',
+          fontSize: '0.84rem',
           color: 'var(--white-dim)',
-          lineHeight: 1.65,
-          marginBottom: '1.2rem',
+          lineHeight: 1.6,
+          marginBottom: '1rem',
         }}
       >
         {project.desc}
       </p>
 
-      {/* Tech badges */}
       <div
         style={{
           display: 'flex',
           flexWrap: 'wrap',
-          gap: '0.4rem',
-          marginBottom: '1.4rem',
+          gap: '0.35rem',
+          marginBottom: '1.1rem',
         }}
       >
         {project.tech.map((t) => (
@@ -180,21 +176,20 @@ function MissionCard({ project, index }: { project: Project; index: number }) {
         ))}
       </div>
 
-      {/* Footer */}
       <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           borderTop: '1px solid rgba(255,255,255,0.06)',
-          paddingTop: '1rem',
+          paddingTop: '0.8rem',
         }}
       >
         <span
           style={{
             fontFamily: 'var(--font-body)',
-            fontSize: '0.7rem',
-            color: 'rgba(168,164,158,0.4)',
+            fontSize: '0.68rem',
+            color: 'rgba(168,164,158,0.35)',
             textTransform: 'uppercase',
             letterSpacing: '0.1em',
           }}
@@ -208,7 +203,7 @@ function MissionCard({ project, index }: { project: Project; index: number }) {
           id={`project-github-${project.slug}`}
           style={{
             fontFamily: 'var(--font-body)',
-            fontSize: '0.8rem',
+            fontSize: '0.78rem',
             color: 'var(--crimson)',
             textDecoration: 'none',
             textTransform: 'uppercase',
@@ -218,8 +213,12 @@ function MissionCard({ project, index }: { project: Project; index: number }) {
             gap: '0.3rem',
             transition: 'color 0.15s',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--white-off)')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--crimson)')}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.color = 'var(--white-off)')
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.color = 'var(--crimson)')
+          }
         >
           ↗ GitHub
         </a>
@@ -230,7 +229,6 @@ function MissionCard({ project, index }: { project: Project; index: number }) {
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<Category>('client');
-
   const filtered = projects.filter((p) => p.category === activeCategory);
 
   return (
@@ -238,11 +236,14 @@ export default function Projects() {
       id="projects"
       aria-label="Proyek"
       style={{
+        height: '100%',
+        minHeight: '100svh',
         backgroundColor: 'var(--black-surface)',
-        paddingTop: '6rem',
-        paddingBottom: '6rem',
         position: 'relative',
         overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        paddingTop: '5rem',
       }}
     >
       {/* Background number */}
@@ -254,18 +255,19 @@ export default function Projects() {
         004
       </span>
 
+      {/* Fixed top area (label + heading + tabs) */}
       <div
         style={{
           maxWidth: '1200px',
           margin: '0 auto',
           padding: '0 2rem',
+          width: '100%',
+          flexShrink: 0,
         }}
       >
-        {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           style={{ marginBottom: '0.5rem' }}
         >
@@ -282,17 +284,15 @@ export default function Projects() {
           </span>
         </motion.div>
 
-        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.05 }}
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 7vw, 5rem)',
+            fontSize: 'clamp(2.5rem, 7vw, 4rem)',
             color: 'var(--white-off)',
-            marginBottom: '2.5rem',
+            marginBottom: '1.5rem',
             position: 'relative',
             display: 'inline-block',
           }}
@@ -309,17 +309,11 @@ export default function Projects() {
         {/* Category tabs */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.1 }}
           role="tablist"
           aria-label="Kategori proyek"
-          style={{
-            display: 'flex',
-            gap: '0',
-            marginBottom: '2.5rem',
-            flexWrap: 'wrap',
-          }}
+          style={{ display: 'flex', gap: '4px', marginBottom: '1.5rem', flexWrap: 'wrap' }}
         >
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
@@ -332,18 +326,20 @@ export default function Projects() {
                 onClick={() => setActiveCategory(cat.id)}
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  padding: '0.6rem 1.6rem',
+                  padding: '0.5rem 1.4rem',
                   border: 'none',
                   cursor: 'pointer',
                   position: 'relative',
                   transition: 'all 0.18s ease',
-                  clipPath: 'polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%)',
-                  background: isActive ? 'var(--crimson)' : 'rgba(255,255,255,0.05)',
+                  clipPath:
+                    'polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%)',
+                  background: isActive
+                    ? 'var(--crimson)'
+                    : 'rgba(255,255,255,0.05)',
                   color: isActive ? 'var(--white-off)' : 'var(--white-dim)',
-                  marginRight: '4px',
                 }}
               >
                 {cat.label}
@@ -351,65 +347,85 @@ export default function Projects() {
             );
           })}
         </motion.div>
+      </div>
 
-        {/* Project grid */}
+      {/* Scrollable cards area */}
+      <div
+        style={{
+          flex: 1,
+          overflowY: 'auto',
+          paddingBottom: '2rem',
+          // Custom scrollbar via globals.css
+        }}
+      >
         <div
-          role="tabpanel"
-          aria-labelledby={`tab-${activeCategory}`}
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
-            gap: '1.5rem',
-            minHeight: '300px',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '0 2rem',
           }}
         >
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
-              <MissionCard key={project.slug} project={project} index={i} />
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* See all CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          style={{ marginTop: '3rem', textAlign: 'center' }}
-        >
-          <a
-            href="https://github.com/RaihanMufthahul223?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            id="view-all-repos-btn"
+          <div
+            role="tabpanel"
+            aria-labelledby={`tab-${activeCategory}`}
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontFamily: 'var(--font-body)',
-              fontSize: '0.85rem',
-              color: 'var(--white-dim)',
-              textDecoration: 'none',
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-              padding: '0.8rem 1.5rem',
-              border: '1px solid rgba(255,255,255,0.12)',
-              clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--crimson)';
-              e.currentTarget.style.color = 'var(--white-off)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)';
-              e.currentTarget.style.color = 'var(--white-dim)';
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+              gap: '1.2rem',
             }}
           >
-            ↗ Lihat semua 27 repository di GitHub
-          </a>
-        </motion.div>
+            <AnimatePresence mode="popLayout">
+              {filtered.map((project, i) => (
+                <MissionCard
+                  key={project.slug}
+                  project={project}
+                  index={i}
+                />
+              ))}
+            </AnimatePresence>
+          </div>
+
+          {/* See all */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            style={{ marginTop: '2rem', textAlign: 'center' }}
+          >
+            <a
+              href="https://github.com/RaihanMufthahul223?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="view-all-repos-btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.82rem',
+                color: 'var(--white-dim)',
+                textDecoration: 'none',
+                textTransform: 'uppercase',
+                letterSpacing: '0.15em',
+                padding: '0.7rem 1.4rem',
+                border: '1px solid rgba(255,255,255,0.12)',
+                clipPath:
+                  'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--crimson)';
+                e.currentTarget.style.color = 'var(--white-off)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)';
+                e.currentTarget.style.color = 'var(--white-dim)';
+              }}
+            >
+              ↗ Lihat semua 27 repository di GitHub
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -38,6 +38,7 @@ export default function Hero() {
       id="hero"
       aria-label="Hero — Raihan Mufthahul"
       style={{
+        height: '100%',
         minHeight: '100svh',
         backgroundColor: 'var(--black-deep)',
         position: 'relative',
@@ -50,11 +51,7 @@ export default function Hero() {
       <div
         className="halftone"
         aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.4,
-        }}
+        style={{ position: 'absolute', inset: 0, opacity: 0.4 }}
       />
 
       {/* Large decorative number */}
@@ -100,7 +97,8 @@ export default function Hero() {
           top: 0,
           bottom: 0,
           width: '2px',
-          background: 'linear-gradient(to bottom, transparent, var(--crimson) 30%, var(--crimson) 70%, transparent)',
+          background:
+            'linear-gradient(to bottom, transparent, var(--crimson) 30%, var(--crimson) 70%, transparent)',
           opacity: 0.3,
         }}
       />
@@ -116,11 +114,7 @@ export default function Hero() {
           zIndex: 1,
         }}
       >
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
+        <motion.div variants={container} initial="hidden" animate="show">
           {/* Tag line above name */}
           <motion.div variants={item} style={{ marginBottom: '1.2rem' }}>
             <span
@@ -170,16 +164,11 @@ export default function Hero() {
               MUFTHAHUL
             </span>
 
-            {/* Scratch line decorator */}
             <ScratchLine
               width={200}
               height={28}
               color="#DC143C"
-              style={{
-                position: 'absolute',
-                bottom: '-8px',
-                left: '0',
-              }}
+              style={{ position: 'absolute', bottom: '-8px', left: '0' }}
             />
           </motion.h1>
 
@@ -225,11 +214,7 @@ export default function Hero() {
             >
               ↗ GitHub
             </SkewButton>
-            <SkewButton
-              href="#contact"
-              variant="outline"
-              id="hero-contact-btn"
-            >
+            <SkewButton href="#contact" variant="outline" id="hero-contact-btn">
               Hubungi
             </SkewButton>
           </motion.div>

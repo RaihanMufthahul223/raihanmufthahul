@@ -28,8 +28,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: var(--black-deep);
+  overflow: hidden; /* Full-page slider controls all scrolling */
 }
 
 body {
@@ -37,7 +37,7 @@ body {
   color: var(--white-off);
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow: hidden; /* Prevent native scroll — slider handles navigation */
 }
 
 /* ============================================================

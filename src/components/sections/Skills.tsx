@@ -6,7 +6,7 @@ import { EASE_SHARP } from '@/lib/motion';
 
 interface Skill {
   name: string;
-  level: number; // 0–100
+  level: number;
   sublabel: string;
 }
 
@@ -23,10 +23,9 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -24 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.4, delay: index * 0.07, ease: EASE_SHARP }}
-      style={{ marginBottom: '1.6rem' }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.08, ease: EASE_SHARP }}
+      style={{ marginBottom: '1.4rem' }}
     >
       {/* Skill header */}
       <div
@@ -34,7 +33,7 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'baseline',
-          marginBottom: '0.4rem',
+          marginBottom: '0.35rem',
           gap: '0.5rem',
         }}
       >
@@ -42,7 +41,7 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
           <span
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.15rem',
+              fontSize: '1.1rem',
               color: 'var(--white-off)',
               letterSpacing: '0.06em',
               display: 'block',
@@ -54,7 +53,7 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
           <span
             style={{
               fontFamily: 'var(--font-body)',
-              fontSize: '0.72rem',
+              fontSize: '0.7rem',
               color: 'var(--white-dim)',
               textTransform: 'uppercase',
               letterSpacing: '0.12em',
@@ -66,7 +65,7 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
         <span
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '1.4rem',
+            fontSize: '1.35rem',
             color: 'var(--crimson)',
             flexShrink: 0,
           }}
@@ -80,11 +79,10 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
         <motion.div
           className="skill-fill"
           initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: skill.level / 100 }}
-          viewport={{ once: true, margin: '-40px' }}
+          animate={{ scaleX: skill.level / 100 }}
           transition={{
-            duration: 0.7,
-            delay: index * 0.07 + 0.15,
+            duration: 0.75,
+            delay: index * 0.08 + 0.2,
             ease: EASE_SHARP,
           }}
           style={{ transformOrigin: 'left' }}
@@ -105,7 +103,10 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
             style={{
               fontFamily: 'var(--font-body)',
               fontSize: '0.6rem',
-              color: t <= skill.level ? 'var(--crimson)' : 'rgba(255,255,255,0.15)',
+              color:
+                t <= skill.level
+                  ? 'var(--crimson)'
+                  : 'rgba(255,255,255,0.15)',
             }}
           >
             |
@@ -122,14 +123,19 @@ export default function Skills() {
       id="skills"
       aria-label="Skills"
       style={{
+        height: '100%',
+        minHeight: '100svh',
         backgroundColor: 'var(--black-deep)',
-        paddingTop: '6rem',
-        paddingBottom: '6rem',
         position: 'relative',
-        overflow: 'hidden',
+        overflow: 'hidden auto',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingTop: '5rem',
+        paddingBottom: '3rem',
       }}
     >
-      {/* Background accent */}
+      {/* Background accent line */}
       <div
         aria-hidden="true"
         style={{
@@ -157,13 +163,13 @@ export default function Skills() {
           maxWidth: '1200px',
           margin: '0 auto',
           padding: '0 2rem',
+          width: '100%',
         }}
       >
         {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           style={{ marginBottom: '0.5rem' }}
         >
@@ -183,14 +189,13 @@ export default function Skills() {
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.05 }}
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(2.5rem, 7vw, 5rem)',
             color: 'var(--white-off)',
-            marginBottom: '3rem',
+            marginBottom: '2.5rem',
             position: 'relative',
             display: 'inline-block',
           }}
@@ -208,7 +213,7 @@ export default function Skills() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: '0 4rem',
           }}
         >
@@ -220,14 +225,13 @@ export default function Skills() {
         {/* Note */}
         <motion.p
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
           style={{
             fontFamily: 'var(--font-body)',
             fontSize: '0.75rem',
             color: 'rgba(168,164,158,0.5)',
-            marginTop: '1rem',
+            marginTop: '0.75rem',
             letterSpacing: '0.06em',
           }}
         >
