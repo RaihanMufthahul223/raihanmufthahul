@@ -1,26 +1,260 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DESIGN TOKENS — Persona 5 UI System
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --crimson: #DC143C;
+  --crimson-dark: #A50E2D;
+  --crimson-glow: rgba(220, 20, 60, 0.25);
+  --black-deep: #080808;
+  --black-surface: #111111;
+  --black-card: #181818;
+  --white-off: #F0EEE9;
+  --white-dim: #A8A49E;
+  --gray-steel: #1C1C1C;
+
+  --font-display: var(--font-bebas);
+  --font-body: var(--font-space-grotesk);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================================================
+   BASE RESET
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: var(--black-deep);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--black-deep);
+  color: var(--white-off);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-display), 'Impact', sans-serif;
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+}
+
+/* ============================================================
+   HALFTONE DOT PATTERN — CSS only, very lightweight
+   ============================================================ */
+.halftone {
+  background-image: radial-gradient(circle, rgba(220,20,60,0.15) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* ============================================================
+   DIAGONAL CLIP UTILITIES
+   ============================================================ */
+.clip-hero {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 94% 100%, 0 100%);
+}
+
+.clip-section-top {
+  clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
+}
+
+.clip-section-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
+}
+
+.clip-card {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 93% 100%, 0 100%);
+}
+
+.clip-badge {
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+}
+
+/* ============================================================
+   SKEW BUTTON — Persona 5 sharp hover
+   ============================================================ */
+.btn-p5 {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.8rem 0.6rem 1.4rem;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+  transition: transform 0.15s cubic-bezier(0.25, 0, 0, 1);
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+
+.btn-p5::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--crimson);
+  transform: translateX(-101%);
+  transition: transform 0.2s cubic-bezier(0.25, 0, 0, 1);
+  z-index: 0;
+}
+
+.btn-p5:hover::before {
+  transform: translateX(0);
+}
+
+.btn-p5:hover {
+  transform: skewX(-2deg);
+}
+
+.btn-p5 span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-p5-primary {
+  background: var(--crimson);
+  color: var(--white-off);
+}
+
+.btn-p5-primary::before {
+  background: var(--white-off);
+}
+
+.btn-p5-primary:hover span {
+  color: var(--crimson);
+}
+
+.btn-p5-outline {
+  background: transparent;
+  color: var(--white-off);
+  box-shadow: inset 0 0 0 2px var(--white-off);
+}
+
+.btn-p5-outline::before {
+  background: var(--white-off);
+}
+
+.btn-p5-outline:hover span {
+  color: var(--black-deep);
+}
+
+/* ============================================================
+   SECTION NUMBER LABEL
+   ============================================================ */
+.section-num {
+  font-family: var(--font-display), sans-serif;
+  font-size: 7rem;
+  color: rgba(220,20,60,0.08);
+  position: absolute;
+  top: -1rem;
+  right: 1rem;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* ============================================================
+   SKILL BAR — RPG style
+   ============================================================ */
+.skill-track {
+  height: 6px;
+  background: var(--gray-steel);
+  position: relative;
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--crimson-dark), var(--crimson));
+  clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  transform-origin: left;
+}
+
+/* ============================================================
+   PROJECT CARD
+   ============================================================ */
+.mission-card {
+  background: var(--black-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.25, 0, 0, 1),
+              border-color 0.2s ease;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--crimson);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.mission-card:hover {
+  transform: skewX(-1deg) translateY(-3px);
+  border-color: rgba(220,20,60,0.4);
+}
+
+.mission-card:hover::before {
+  transform: scaleY(1);
+}
+
+/* ============================================================
+   SCRATCH LINE SVG DECORATOR
+   ============================================================ */
+.scratch-line {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--crimson);
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background: var(--crimson);
+  color: var(--white-off);
+}
+
+/* ============================================================
+   NOISE OVERLAY (very subtle, CSS-only)
+   ============================================================ */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
 }
