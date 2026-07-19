@@ -17,12 +17,12 @@ const highlights = [
   {
     icon: '◈',
     title: 'Web untuk UMKM',
-    desc: 'Landing page, toko online, profil usaha — dibangun dari nol, sesuai kebutuhan klien kecil menengah.',
+    desc: 'Landing page, toko online, profil usaha - dibangun dari nol, sesuai kebutuhan klien kecil menengah.',
   },
   {
     icon: '◉',
     title: 'Aplikasi Web',
-    desc: 'Dari blog sederhana sampai sistem monitoring — backend dan frontend dikerjakan sendiri.',
+    desc: 'Dari blog sederhana sampai sistem monitoring - backend dan frontend dikerjakan sendiri.',
   },
   {
     icon: '◇',
@@ -82,7 +82,7 @@ export default function About() {
               color: 'var(--crimson)',
             }}
           >
-            — Tentang
+            Tentang
           </span>
         </motion.div>
 
@@ -201,7 +201,7 @@ export default function About() {
                   marginBottom: '1rem',
                 }}
               >
-                Saya Raihan — developer yang lebih suka membuktikan lewat kode
+                Saya Raihan - developer yang lebih suka membuktikan lewat kode
                 daripada deskripsi diri. Sejak 2022 aktif membangun website untuk
                 usaha kecil, aplikasi web fungsional, dan sesekali bongkar hal
                 baru yang belum saya mengerti.

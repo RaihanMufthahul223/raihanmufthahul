@@ -182,7 +182,7 @@ export default function Skills() {
               color: 'var(--crimson)',
             }}
           >
-            — Stats
+            Stats
           </span>
         </motion.div>
 

@@ -24,7 +24,7 @@ const projects: Project[] = [
     name: 'Kedai Bayyals',
     slug: 'kedai-bayyals',
     // TODO: update deskripsi jika ada yang lebih spesifik
-    desc: 'Website landing page untuk kedai/kafe — menu, lokasi, dan info kontak.',
+    desc: 'Website landing page untuk kedai/kafe - menu, lokasi, dan info kontak.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/RaihanMufthahul223/kedai-bayyals',
     category: 'client',
@@ -34,7 +34,7 @@ const projects: Project[] = [
     name: 'ZainCake',
     slug: 'zaincake',
     // TODO: update deskripsi jika ada yang lebih spesifik
-    desc: 'Website brand kue — showcase produk, katalog, dan pemesanan.',
+    desc: 'Website brand kue - showcase produk, katalog, dan pemesanan.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/RaihanMufthahul223/zaincake',
     category: 'client',
@@ -43,7 +43,7 @@ const projects: Project[] = [
     name: 'Bandung Cheesecuit',
     slug: 'bandung-cheesecuit',
     // TODO: update deskripsi jika ada yang lebih spesifik
-    desc: 'Profil produk cheesecuit asal Bandung — landing page promosi.',
+    desc: 'Profil produk cheesecuit asal Bandung - landing page promosi.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/RaihanMufthahul223/bandung-cheesecuit',
     category: 'client',
@@ -52,7 +52,7 @@ const projects: Project[] = [
     name: 'Rumah Khitan Mustofa',
     slug: 'rumah-khitan-mustofa',
     // TODO: update deskripsi jika ada yang lebih spesifik
-    desc: 'Website klinik khitan — profil layanan, dokter, dan informasi kontak.',
+    desc: 'Website klinik khitan - profil layanan, dokter, dan informasi kontak.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/RaihanMufthahul223/rumah-khitan-mustofa',
     category: 'client',
@@ -70,7 +70,7 @@ const projects: Project[] = [
   {
     name: 'Blogku',
     slug: 'blogku',
-    desc: 'Platform blog pribadi — tulis, edit, dan publish artikel dengan antarmuka bersih.',
+    desc: 'Platform blog pribadi - tulis, edit, dan publish artikel dengan antarmuka bersih.',
     tech: ['JavaScript', 'Node.js', 'Express'],
     github: 'https://github.com/RaihanMufthahul223/blogku',
     category: 'webapp',
@@ -96,7 +96,7 @@ const projects: Project[] = [
   {
     name: 'Belajar Bun',
     slug: 'belajar-bun',
-    desc: 'Eksplorasi runtime Bun — perbandingan performa, API, dan ekosistemnya.',
+    desc: 'Eksplorasi runtime Bun - perbandingan performa, API, dan ekosistemnya.',
     tech: ['Bun', 'JavaScript'],
     github: 'https://github.com/RaihanMufthahul223/belajar-bun',
     category: 'eksplorasi',
@@ -280,7 +280,7 @@ export default function Projects() {
               color: 'var(--crimson)',
             }}
           >
-            — Misi
+            Misi
           </span>
         </motion.div>
 

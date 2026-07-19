@@ -108,7 +108,7 @@ export default function Contact() {
                 marginBottom: '0.5rem',
               }}
             >
-              — Kontak
+              Kontak
             </span>
 
             <h2
@@ -144,7 +144,7 @@ export default function Contact() {
               }}
             >
               Ada project yang ingin dikerjakan? Atau sekadar ingin tahu lebih
-              lanjut? Jangan ragu — saya buka untuk obrolan singkat maupun
+              lanjut? Jangan ragu - saya buka untuk obrolan singkat maupun
               kolaborasi serius.
             </p>
           </motion.div>

@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      aria-label="Hero — Raihan Mufthahul"
+      aria-label="Hero - Raihan Mufthahul"
       style={{
         height: '100%',
         minHeight: '100svh',
@@ -197,7 +197,7 @@ export default function Hero() {
               marginBottom: '2.4rem',
             }}
           >
-            Bikin website yang nyata — untuk usaha kecil, aplikasi web, dan ide
+            Bikin website yang nyata - untuk usaha kecil, aplikasi web, dan ide
             yang butuh wujud digital.
           </motion.p>
 

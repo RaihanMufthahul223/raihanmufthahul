@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Raihan Mufthahul — Web Developer Indonesia",
+  title: "Raihan Mufthahul - Web Developer Indonesia",
   description:
     "Portofolio Raihan Mufthahul, web developer asal Indonesia. Spesialis web untuk UMKM, aplikasi web, dan eksplorasi Python.",
   keywords: [
@@ -35,14 +35,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    title: "Raihan Mufthahul — Web Developer Indonesia",
+    title: "Raihan Mufthahul - Web Developer Indonesia",
     description:
       "Portofolio Raihan Mufthahul, web developer asal Indonesia. Spesialis web untuk UMKM, aplikasi web, dan eksplorasi Python.",
     siteName: "Raihan Mufthahul Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Raihan Mufthahul — Web Developer Indonesia",
+    title: "Raihan Mufthahul - Web Developer Indonesia",
     description:
       "Portofolio web developer asal Indonesia. Spesialis web UMKM, aplikasi web, Python.",
   },
