@@ -17,34 +17,27 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Raihan Mufthahul - Web Developer Indonesia",
+  title: {
+    default: "Raihan Mufthahul — Web Developer",
+    template: "%s | Raihan Mufthahul",
+  },
   description:
-    "Portofolio Raihan Mufthahul, web developer asal Indonesia. Spesialis web untuk UMKM, aplikasi web, dan eksplorasi Python.",
-  keywords: [
-    "web developer",
-    "Indonesia",
-    "freelance",
-    "Next.js",
-    "JavaScript",
-    "TypeScript",
-    "PHP",
-    "Python",
-    "Raihan Mufthahul",
-  ],
-  authors: [{ name: "Raihan Mufthahul" }],
+    "Portofolio Raihan Mufthahul, web developer asal Indonesia. Berisi project, skill, dan pengalaman di JavaScript, TypeScript, Node.js, Python, dan pengembangan web.",
+  metadataBase: new URL("https://raihanmufthahul.vercel.app/"),
+  keywords: ["Raihan Mufthahul", "web developer", "portofolio", "frontend developer", "backend developer"],
+  authors: [{ name: "Raihan Mufthahul", url: "https://github.com/RaihanMufthahul223" }],
   openGraph: {
     type: "website",
+    title: "Raihan Mufthahul — Web Developer",
+    description: "Portofolio dan project-project Raihan Mufthahul.",
+    url: "https://raihanmufthahul.vercel.app/",
+    siteName: "Raihan Mufthahul",
     locale: "id_ID",
-    title: "Raihan Mufthahul - Web Developer Indonesia",
-    description:
-      "Portofolio Raihan Mufthahul, web developer asal Indonesia. Spesialis web untuk UMKM, aplikasi web, dan eksplorasi Python.",
-    siteName: "Raihan Mufthahul Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Raihan Mufthahul - Web Developer Indonesia",
-    description:
-      "Portofolio web developer asal Indonesia. Spesialis web UMKM, aplikasi web, Python.",
+    title: "Raihan Mufthahul — Web Developer",
+    description: "Portofolio dan project-project Raihan Mufthahul.",
   },
   robots: {
     index: true,

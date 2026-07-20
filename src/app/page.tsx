@@ -19,6 +19,20 @@ const SECTIONS = [
 ];
 
 export default function Home() {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Raihan Mufthahul",
+    url: "https://raihanmufthahul.vercel.app/",
+    sameAs: [
+      "https://github.com/RaihanMufthahul223",
+      "https://www.instagram.com/raihanmufthahul/",
+      "https://www.facebook.com/raihan.mufthahul.3/",
+    ],
+    jobTitle: "Web Developer",
+    knowsAbout: ["JavaScript", "TypeScript", "Node.js", "Express", "PHP", "Python", "Next.js", "Tailwind CSS"],
+  };
+
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -33,6 +47,10 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* Main content — renders behind preloader so hero is ready on reveal */}
       <Navbar
         currentSection={currentSection}
