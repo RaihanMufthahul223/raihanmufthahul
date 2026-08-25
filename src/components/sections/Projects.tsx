@@ -118,7 +118,7 @@ function MissionCard({ project, index }: { project: Project; index: number }) {
       exit={{ opacity: 0, y: -16, scale: 0.96 }}
       transition={{ duration: 0.35, delay: index * 0.06, ease: EASE_SHARP }}
       className="mission-card"
-      style={{ padding: '1.3rem' }}
+      style={{ padding: '1.3rem', width: '280px', flexShrink: 0, scrollSnapAlign: 'start' }}
     >
       {project.highlight && (
         <div
@@ -349,83 +349,81 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* Scrollable cards area */}
+      {/* Horizontal scroll cards area */}
       <div
         style={{
           flex: 1,
-          overflowY: 'auto',
-          paddingBottom: '2rem',
-          // Custom scrollbar via globals.css
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: 0,
         }}
       >
         <div
+          role="tabpanel"
+          aria-labelledby={`tab-${activeCategory}`}
           style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '0 2rem',
+            display: 'flex',
+            gap: '1.2rem',
+            overflowX: 'auto',
+            overflowY: 'hidden',
+            padding: '0 2rem 1.5rem 2rem',
+            scrollSnapType: 'x mandatory',
           }}
         >
-          <div
-            role="tabpanel"
-            aria-labelledby={`tab-${activeCategory}`}
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project, i) => (
+              <MissionCard
+                key={project.slug}
+                project={project}
+                index={i}
+              />
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {/* See all */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          style={{ marginTop: '0.5rem', textAlign: 'center', padding: '0 2rem' }}
+        >
+          <a
+            href="https://github.com/RaihanMufthahul223?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="view-all-repos-btn"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-              gap: '1.2rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.82rem',
+              color: 'var(--white-dim)',
+              textDecoration: 'none',
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+              padding: '0.7rem 1.4rem',
+              border: '1px solid rgba(255,255,255,0.12)',
+              clipPath:
+                'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
+              transition: 'all 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--crimson)';
+              e.currentTarget.style.color = 'var(--white-off)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)';
+              e.currentTarget.style.color = 'var(--white-dim)';
             }}
           >
-            <AnimatePresence mode="popLayout">
-              {filtered.map((project, i) => (
-                <MissionCard
-                  key={project.slug}
-                  project={project}
-                  index={i}
-                />
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* See all */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            style={{ marginTop: '2rem', textAlign: 'center' }}
-          >
-            <a
-              href="https://github.com/RaihanMufthahul223?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="view-all-repos-btn"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.82rem',
-                color: 'var(--white-dim)',
-                textDecoration: 'none',
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-                padding: '0.7rem 1.4rem',
-                border: '1px solid rgba(255,255,255,0.12)',
-                clipPath:
-                  'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--crimson)';
-                e.currentTarget.style.color = 'var(--white-off)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)';
-                e.currentTarget.style.color = 'var(--white-dim)';
-              }}
-            >
-              ↗ Lihat semua 27 repository di GitHub
-            </a>
-          </motion.div>
-        </div>
+            ↗ Lihat semua 27 repository di GitHub
+          </a>
+        </motion.div>
       </div>
     </section>
   );

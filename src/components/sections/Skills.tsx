@@ -25,7 +25,7 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
       initial={{ opacity: 0, x: -24 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08, ease: EASE_SHARP }}
-      style={{ marginBottom: '1.4rem' }}
+      style={{ marginBottom: '0.85rem' }}
     >
       {/* Skill header */}
       <div
@@ -131,8 +131,8 @@ export default function Skills() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        paddingTop: '5rem',
-        paddingBottom: '3rem',
+        paddingTop: '3rem',
+        paddingBottom: '1rem',
       }}
     >
       {/* Background accent line */}
@@ -193,9 +193,9 @@ export default function Skills() {
           transition={{ duration: 0.4, delay: 0.05 }}
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 7vw, 5rem)',
+            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
             color: 'var(--white-off)',
-            marginBottom: '2.5rem',
+            marginBottom: '1rem',
             position: 'relative',
             display: 'inline-block',
           }}
@@ -213,8 +213,8 @@ export default function Skills() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '0 4rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '0 2rem',
           }}
         >
           {skills.map((skill, i) => (

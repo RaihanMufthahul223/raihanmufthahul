@@ -2,7 +2,6 @@
 
 import { useCallback, useRef, useState } from 'react';
 import Preloader from '@/components/Preloader';
-import Navbar from '@/components/Navbar';
 import FullPageSlider from '@/components/FullPageSlider';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
@@ -52,17 +51,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
       {/* Main content — renders behind preloader so hero is ready on reveal */}
-      <Navbar
-        currentSection={currentSection}
-        onNavigate={handleNavigate}
-        style={{
-          // Hide navbar until preloader finishes
-          opacity: isLoaded ? 1 : 0,
-          pointerEvents: isLoaded ? 'all' : 'none',
-          transition: 'opacity 0.4s ease',
-          zIndex: 100,
-        }}
-      />
+
       <FullPageSlider
         sections={SECTIONS}
         currentSection={currentSection}
